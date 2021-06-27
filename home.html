@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Weather_app</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+      
+
+<body id="demo">
+     <div class="container-flex">
+       <div class="card bg-info text-center">
+         <h1 class="icon">
+               
+               <i class="fa fa-cloud" aria-hidden="true"></i>
+         </h1>
+         <div class="info mt-4">
+               <h2 class="location"><i class="fa fa-location-arrow" aria-hidden="true"></i>{%location%},{%country%}</h2>
+               <h3 id="date"></h3>
+               <h1 class="temp">{%temp%}&deg;F</h1>
+               <p class="tempmin_max">Min: {%tempmin%}&deg;F | Max: {%tempmax%}&deg;F</p>
+         </div>
+      </div>
+     </div>
+      <script>
+            let icon=document.getElementById('icon');
+const tempStatus="Clouds";
+let fixdate=document.getElementById('date');
+const getCurrentDay=()=>{
+     let currentTime=new Date();
+     var weekday = new Array(7);
+      weekday[0] = "Sunday";
+      weekday[1] = "Monday";
+      weekday[2] = "Tuesday";
+      weekday[3] = "Wednesday";
+      weekday[4] = "Thursday";
+      weekday[5] = "Friday";
+      weekday[6] = "Saturday";
+     let day=(weekday[currentTime.getDay()]);
+     return day;
+};
+
+
+const getCurrentTime=()=>{
+      var months=["Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"];
+
+      var now =new Date();
+      var month=months[now.getMonth()];
+      var date=now.getDate();
+      let result=(month+" "+date);
+      return result;
+};
+fixdate.innerHTML=getCurrentDay() +" | "+getCurrentTime();
+
+</script>
+</body>
+</html>
