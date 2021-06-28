@@ -13,6 +13,7 @@
   "author": "gaurav raj",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "requests": "^0.3.0"
   }
 }

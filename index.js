@@ -1,6 +1,7 @@
 const http=require('http')
 const fs=require('fs')
 const requests=require('requests')
+require('dotenv').config();
 
 const homeFile=fs.readFileSync("home.html",'utf-8')
 
@@ -18,7 +19,8 @@ const replaceVal=(tempVal,orgVal)=>{
 const server=http.createServer((req,res)=>{
      
     if(req.url='/'){
-      requests("https://api.openweathermap.org/data/2.5/weather?q=patna&appid=772fd5127fab23e6297b43dc79f3c396")
+      const api_key=process.env.API_KEY;
+      requests(`https://api.openweathermap.org/data/2.5/weather?q=pune&appid=${api_key}`)
       .on('data', (chunk)=> {
        const objdata=JSON.parse(chunk)
        const arr=[objdata]
